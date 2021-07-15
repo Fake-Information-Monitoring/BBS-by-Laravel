@@ -57,8 +57,8 @@ class Kernel extends HttpKernel
             // 见：https://learnku.com/docs/laravel/{{doc_version}}/routing#route-model-binding
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
-            // 强制用户邮箱认证
-            \App\Http\Middleware\EnsureEmailIsVerified::class,
+//            // 强制用户邮箱认证
+//            \App\Http\Middleware\EnsureEmailIsVerified::class,
 
             // 记录用户最后活跃时间
             \App\Http\Middleware\RecordLastActivedTime::class,

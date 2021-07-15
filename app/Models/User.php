@@ -2,20 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmailContract
+class User extends Authenticatable
 {
     use Traits\ActiveUserHelper;
     use Traits\LastActivedAtHelper;
     use HasRoles;
-    use HasFactory, MustVerifyEmailTrait;
+    use HasFactory;
 
     use Notifiable {
         notify as protected laravelNotify;
@@ -48,9 +46,6 @@ class User extends Authenticatable implements MustVerifyEmailContract
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 
     public function topics()
     {
